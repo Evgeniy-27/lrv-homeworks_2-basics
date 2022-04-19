@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/todo', [\App\Http\Controllers\TodoController::class, 'index'])->name('todo.index');
+
+Route::get("/todo/create", [\App\Http\Controllers\TodoController::class, 'create'])->name('todo.create');
+
+Route::get("/todo/{id}", [\App\Http\Controllers\TodoController::class, 'show']);
